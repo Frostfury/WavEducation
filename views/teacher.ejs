@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="teacherstyle.css">
+       
+<link
+href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap"
+rel="stylesheet"
+/>
+</head>
+
+<style>
+    
+  :root {
+    font-size: 16px;
+    font-family: 'Open Sans';
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #23232e;
+    --bg-secondary: #141418;
+    --transition-speed: 500ms;
+    
+  }
+  
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #50b325;
+}
+
+  </style>
+
+<body style="background-color: whitesmoke;">
+
+
+<div style="margin: 65px 200px;">
+  <form action="/teacher" method="post" enctype="multipart/form-data">
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="name" placeholder="Your name.." required>
+
+    <label for="cname">Class Name</label>
+    <input type="text" id="cname" name="classname" placeholder="Your class name.." required>
+
+    <label for="image">Image Upload</label>
+    <br>
+    
+    <input type="file" id="myFile" name="pptimages" multiple required> <i style="font-size: 1rem;">A maximum of 40 images or a folder containing 40 files are to be added</i>
+     
+      
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+</body>
+</html>
