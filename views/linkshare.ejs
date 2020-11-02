@@ -41,19 +41,23 @@ body::-webkit-scrollbar-thumb {
 <div style="margin: 65px 180px; border: 5px solid #b6b6b6; border-radius: 5px; background-color: #23232e;">
   <!-- <form action="/action_page.php"> -->
     <form style="padding: 25px;font-size: 2rem;">
-    <label for="tlnk" style="color: #b6b6b6;">Student Session's link: <span id="copytext" style="border:2px solid black;padding: 6px 5px;background-color:whitesmoke; font-size: 1.5rem; color: #141418;" ><%=data._id%></span></label>
+    <label for="tlnk" style="color: #b6b6b6;">Student Session's code: <span id="copytext" style="border:2px solid black;padding: 6px 5px;background-color:whitesmoke; font-size: 1.5rem; color: #141418;" ><%=data._id%></span></label>
 
 
         <button onclick="myFunction()" style="padding: 3px;font-size: 2rem;border:2px solid #171717;border-radius: 3px;background-color: #50b325;">
             <img src="copy.svg" alt="copy" width="30" height="30" style=" filter: invert(0%) sepia(100%) saturate(7500%) hue-rotate(266deg) brightness(113%) contrast(90%); align-items: center;">
         </button>
         <br>
+        <br>
         <label for="tcode" style="color: #b6b6b6;">Student Session's link: <span id="copycode" style="border:2px solid black;padding: 6px 5px;background-color:whitesmoke; font-size: 1.5rem; color: #141418;" >https://waveducation.herokuapp.com/session/<%=data._id%></span></label>
+
 
 
         <button onclick="myFunctioncode()" style="padding: 3px;font-size: 2rem;border:2px solid #171717;border-radius: 3px;background-color: #50b325;">
             <img src="copy.svg" alt="copy" width="30" height="30" style=" filter: invert(0%) sepia(100%) saturate(7500%) hue-rotate(266deg) brightness(113%) contrast(90%); align-items: center;">
         </button>
+        <br>
+        <br>
         <br>
     <a href="/session/<%=data._id%>/teacher" style="padding: 10px 15px;font-size: 2rem;border:3px solid #171717;border-radius: 5px;background-color: #1578b1;color: #e9e9e9; text-decoration: none;">Start Session</a>
     <a href="/session/<%=data._id%>/recordteacher" style="padding: 10px 15px;font-size: 2rem;border:3px solid #171717;border-radius: 5px;background-color: #b11a15;color: #e9e9e9; text-decoration: none;">Record Session</a>
@@ -62,6 +66,7 @@ body::-webkit-scrollbar-thumb {
 <script>
 
 function myFunction() {
+  console.log('Called first')
   var aux = document.createElement("input");
 
 // Assign it the value of the specified element
@@ -79,31 +84,33 @@ document.execCommand("copy");
 // Remove it from the body
 document.body.removeChild(aux);
    alert("Copied the text: " + copytext.innerHTML);
+   
 }
-
-    </script>
-    <script>
-
-      function myFunctioncode() {
-        var aux = document.createElement("input");
+function myFunctioncode() {
+  console.log('Called Second')
+        var aux2 = document.createElement("input");
       
       // Assign it the value of the specified element
-      aux.setAttribute("value", document.getElementById('copycode').innerHTML);
+      aux2.setAttribute("value", document.getElementById('copycode').innerHTML);
       
       // Append it to the body
-      document.body.appendChild(aux);
+      document.body.appendChild(aux2);
+      console.log(aux2.value)
       
       // Highlight its content
-      aux.select();
+      aux2.select();
       
       // Copy the highlighted text
       document.execCommand("copy");
       
       // Remove it from the body
-      document.body.removeChild(aux);
-         alert("Copied the text: " + copytext.innerHTML);
-      }
+      document.body.removeChild(aux2);
+         alert("Copied the text: " + aux2.value);
+        
+}
       
-          </script>
+      
+    </script>
+    
 </body>
 </html>
